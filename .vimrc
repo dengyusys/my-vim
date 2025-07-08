@@ -26,6 +26,10 @@ set incsearch
 " 默认字符编码设置为UTF8
 set encoding=utf8
 
+" 显示行号
+set number
+
+" 键位映射
 inoremap jj <Esc>
 
 " easymotion 配置
