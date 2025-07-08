@@ -1,6 +1,9 @@
 " 禁用 vi 兼容模式
 set nocompatible
 
+" 设置GVIM下字体和大小
+set guifont=JetBrainsMono\ NFM\ Regular:h12
+
 " 设置 Backspace 键模式
 set backspace=indent,eol,start
 
@@ -20,6 +23,8 @@ set hlsearch
 " 查找输入时动态增量显示查找结果
 set incsearch
 
+" 默认字符编码设置为UTF8
+set encoding=utf8
 
 inoremap jj <Esc>
 
@@ -27,9 +32,6 @@ inoremap jj <Esc>
 map <Leader> <Plug>(easymotion-prefix)
 map <Leader><Leader>w <Plug>(easymotion-w)
 
-
-" lightline 配置
-" set laststatus=2
 
 " NERDTree key mappings
 noremap <space>nn :NERDTree<CR>
@@ -45,13 +47,13 @@ noremap <space>nm :NERDTreeMirror<CR>
 call plug#begin()
   Plug 'mhinz/vim-startify'
   Plug 'preservim/nerdtree'
-  Plug 'itchyny/lightline.vim'
   Plug 'easymotion/vim-easymotion'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
   Plug 'mg979/vim-visual-multi'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'skywind3000/asyncrun.vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 call plug#end()
