@@ -29,6 +29,14 @@ set encoding=utf8
 " 显示行号
 set number
 
+" 关闭备份功能，因为大多数项目使用 SVN、Git 等版本控制...
+" 不创建备份文件（默认 .bak 后缀）
+set nobackup
+" 不写入备份文件（覆盖原有文件时）
+set nowb
+" 不创建交换文件（默认 .swp 后缀）
+set noswapfile
+
 " 键位映射
 inoremap jj <Esc>
 
