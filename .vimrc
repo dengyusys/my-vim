@@ -40,8 +40,8 @@ set nowb
 set noswapfile   
 
 " 光标调整
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
+" let &t_SI = "\e[6 q"
+" let &t_EI = "\e[2 q"
 
 " 键位映射
 inoremap jj <Esc>
