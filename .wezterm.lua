@@ -13,7 +13,7 @@ config.color_scheme = 'AdventureTime'
 config.default_prog = { 'C:/Program Files/PowerShell/7/pwsh.exe' }
 
 -- 取消连字
-onfig.harfbuzz_features = { 'calt = 0', 'clig = 0', 'liga = 0' }
+config.harfbuzz_features = { 'calt = 0', 'clig = 0', 'liga = 0' }
 
 -- and finally, return the configuration to wezterm
 return config
