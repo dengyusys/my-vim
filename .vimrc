@@ -7,7 +7,7 @@ set guifont=JetBrainsMono\ NFM\ Regular:h12
 " 设置 Backspace 键模式
 set backspace=indent,eol,start
 
-" 启动真彩模式
+" 启动真彩模式，以便设置主题
 set termguicolors
 
 "----------------------------------------------------------------------
@@ -42,6 +42,7 @@ set tabstop=2
 " 关闭备份功能，因为大多数项目使用 SVN、Git 等版本控制...
 " 不创建备份文件（默认 .bak 后缀）
 set nobackup
+set nowritebackup
 
 " 不写入备份文件（覆盖原有文件时）
 set nowb
@@ -57,12 +58,10 @@ set noswapfile
 " let &t_EI = "\e[2 q"
 
 " 键位映射
-inoremap jj <Esc>
+" inoremap jj <Esc>
 
 " easymotion 配置
 map <Leader> <Plug>(easymotion-prefix)
-map <Leader><Leader>w <Plug>(easymotion-w)
-
 
 " NERDTree key mappings
 noremap <space>nn :NERDTree<CR>
@@ -108,13 +107,54 @@ augroup END
 " 将默认shellg改为powershell
 let g:terminal_shell = 'pwsh'
 
+
+"----------------------------------------------------------------------
+" LeaderF 配置
+"----------------------------------------------------------------------
+let g:Lf_ShortcutF = '<c-p>'
+
+"----------------------------------------------------------------------
+" Coc.nvim 配置
+" Use tab for trigger completion with characters ahead and navigate
+" NOTE: There's always complete item selected by default, you may want to enable
+" no select by `"suggest.noselect": true` in your configuration file
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" GoTo code navigation
+nmap <silent><nowait> gd <Plug>(coc-definition)
+nmap <silent><nowait> gy <Plug>(coc-type-definition)
+nmap <silent><nowait> gi <Plug>(coc-implementation)
+nmap <silent><nowait> gr <Plug>(coc-references)
+
+
+" 安装
+
+"----------------------------------------------------------------------
+
 call plug#begin()
   Plug 'morhetz/gruvbox'
   Plug 'mhinz/vim-startify'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'preservim/nerdtree'
-	Plug 'justinmk/vim-dirvish'
+  Plug 'justinmk/vim-dirvish'
   Plug 'easymotion/vim-easymotion'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
@@ -123,7 +163,9 @@ call plug#begin()
   Plug 'skywind3000/vim-terminal-help'
 	Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 	Plug 'junegunn/fzf'
+	Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+	Plug 'machakann/vim-highlightedyank'
 call plug#end()
 
-
 colorscheme gruvbox
+
