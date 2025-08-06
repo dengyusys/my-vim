@@ -7,6 +7,9 @@ set guifont=JetBrainsMono\ NFM\ Regular:h12
 " 设置 Backspace 键模式
 set backspace=indent,eol,start
 
+" 启动真彩模式
+set termguicolors
+
 "----------------------------------------------------------------------
 " 搜索设置
 "----------------------------------------------------------------------
@@ -106,6 +109,7 @@ augroup END
 let g:terminal_shell = 'pwsh'
 
 call plug#begin()
+  Plug 'morhetz/gruvbox'
   Plug 'mhinz/vim-startify'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
@@ -120,3 +124,6 @@ call plug#begin()
 	Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 	Plug 'junegunn/fzf'
 call plug#end()
+
+
+colorscheme gruvbox

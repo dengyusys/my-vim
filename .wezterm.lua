@@ -16,11 +16,11 @@ config.default_prog = { 'C:/Program Files/PowerShell/7/pwsh.exe' }
 config.harfbuzz_features = { 'calt = 0', 'clig = 0', 'liga = 0' }
 
 -- 配色
-config.color_scheme = "Apple Classic"
+config.color_scheme = "Tokyo Night"
 
 -- 亚克力效果
 config.window_background_opacity = 0.8
 config.win32_system_backdrop = 'Acrylic'
 
--- and finally, return the configuration to wezterm
+-- anm finally, return the configuration to wezterm
 return config
