@@ -164,7 +164,6 @@ call plug#begin()
   Plug 'skywind3000/asyncrun.vim'
   Plug 'skywind3000/vim-terminal-help'
 	Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
-	Plug 'junegunn/fzf'
 	Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 	Plug 'machakann/vim-highlightedyank'
 call plug#end()
