@@ -10,6 +10,9 @@ set backspace=indent,eol,start
 " 启动真彩模式，以便设置主题
 set termguicolors
 
+" 启动语法高亮
+syntax on
+
 "----------------------------------------------------------------------
 " 搜索设置
 "----------------------------------------------------------------------
@@ -149,7 +152,6 @@ nmap <silent><nowait> gr <Plug>(coc-references)
 "----------------------------------------------------------------------
 
 call plug#begin()
-  Plug 'morhetz/gruvbox'
   Plug 'mhinz/vim-startify'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
@@ -167,5 +169,4 @@ call plug#begin()
 	Plug 'machakann/vim-highlightedyank'
 call plug#end()
 
-colorscheme gruvbox
 
