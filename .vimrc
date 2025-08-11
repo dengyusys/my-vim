@@ -35,14 +35,22 @@ set encoding=utf8
 " 显示行号
 set number
 
+" 允许代码折叠
+set foldenable
+" 代码折叠默认使用缩进
+set fdm=indent
+" 默认打开所有缩进
+set foldlevel=99
+
 " tab
 set shiftwidth=2
 set softtabstop=2
 set noexpandtab
 set tabstop=2
 
+" 文件换行符					
+set ffs=unix,dos,mac
 
-" 关闭备份功能，因为大多数项目使用 SVN、Git 等版本控制...
 " 不创建备份文件（默认 .bak 后缀）
 set nobackup
 set nowritebackup
@@ -60,13 +68,25 @@ set noswapfile
 " let &t_SI = "\e[6 q"
 " let &t_EI = "\e[2 q"
 
-" 键位映射
-" inoremap jj <Esc>
+
+"----------------------------------------------------------------------
+" airline
+"----------------------------------------------------------------------
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
+
+" 忽略查询默写文件
+set wildignore+=*/node_modules/**,*.git,.git
+set wildignore+=*.png,*.jpg,*.gif
 
 " easymotion 配置
 map <Leader> <Plug>(easymotion-prefix)
 
 " NERDTree key mappings
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeHijackNetrw = 0
 noremap <space>nn :NERDTree<CR>
 noremap <space>no :NERDTreeFocus<CR>
 noremap <space>nf :NERDTreeFind<CR>
@@ -147,9 +167,28 @@ nmap <silent><nowait> gi <Plug>(coc-implementation)
 nmap <silent><nowait> gr <Plug>(coc-references)
 
 
-" 安装
-
 "----------------------------------------------------------------------
+" ale 配置
+"----------------------------------------------------------------------
+
+let g:ale_completion_delay = 500
+let g:ale_echo_delay = 20
+let g:ale_lint_delay = 500
+let g:ale_echo_msg_format = '[%linter%] %code: %%s'
+
+" 设定检测的时机：normal 模式文字改变，或者离开 insert模式
+" 禁用默认 INSERT
+" 模式下改变文字也触发的设置，太频繁外，还会让补全窗闪烁
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
+let g:ale_fix_on_save = 1
+
+let g:ale_fixers = {
+\   'javascript': ['eslint', 'prettier'],
+\   'vue': ['eslint', 'prettier'],
+\   'css': ['prettier'],
+\   'html': ['prettier'],
+\}	
 
 call plug#begin()
   Plug 'mhinz/vim-startify'
@@ -166,6 +205,8 @@ call plug#begin()
 	Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 	Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 	Plug 'machakann/vim-highlightedyank'
+	Plug 'dense-analysis/ale'
+	Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 
