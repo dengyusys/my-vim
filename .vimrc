@@ -2,7 +2,7 @@
 set nocompatible
 
 " 设置GVIM下字体和大小
-set guifont=JetBrainsMonoNL\ Nerd\ Font\ Propo\ Regular:h12
+set guifont=JetBrainsMono\ NFM\ Regular:h14
 
 " 设置 Backspace 键模式
 set backspace=indent,eol,start
