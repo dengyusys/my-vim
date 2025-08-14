@@ -2,7 +2,7 @@
 set nocompatible
 
 " 设置GVIM下字体和大小
-set guifont=JetBrainsMono\ NFM\ Regular:h12
+set guifont=JetBrainsMonoNL\ Nerd\ Font\ Propo\ Regular:h12
 
 " 设置 Backspace 键模式
 set backspace=indent,eol,start
@@ -135,6 +135,7 @@ let g:terminal_shell = 'pwsh'
 " LeaderF 配置
 "----------------------------------------------------------------------
 let g:Lf_ShortcutF = '<c-p>'
+let g:Lf_DevIconsExtensionSymbols = { 'vue': '󰡄' }  
 
 "----------------------------------------------------------------------
 " Coc.nvim 配置
@@ -206,7 +207,6 @@ call plug#begin()
 	Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 	Plug 'machakann/vim-highlightedyank'
 	Plug 'dense-analysis/ale'
-	Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 
