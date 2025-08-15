@@ -167,29 +167,10 @@ nmap <silent><nowait> gy <Plug>(coc-type-definition)
 nmap <silent><nowait> gi <Plug>(coc-implementation)
 nmap <silent><nowait> gr <Plug>(coc-references)
 
-
 "----------------------------------------------------------------------
-" ale 配置
+" 格式化
 "----------------------------------------------------------------------
-
-let g:ale_completion_delay = 500
-let g:ale_echo_delay = 20
-let g:ale_lint_delay = 500
-let g:ale_echo_msg_format = '[%linter%] %code: %%s'
-
-" 设定检测的时机：normal 模式文字改变，或者离开 insert模式
-" 禁用默认 INSERT
-" 模式下改变文字也触发的设置，太频繁外，还会让补全窗闪烁
-let g:ale_lint_on_text_changed = 'normal'
-let g:ale_lint_on_insert_leave = 1
-let g:ale_fix_on_save = 1
-
-let g:ale_fixers = {
-\   'javascript': ['eslint', 'prettier'],
-\   'vue': ['eslint', 'prettier'],
-\   'css': ['prettier'],
-\   'html': ['prettier'],
-\}	
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 call plug#begin()
   Plug 'mhinz/vim-startify'
@@ -206,7 +187,6 @@ call plug#begin()
 	Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 	Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 	Plug 'machakann/vim-highlightedyank'
-	Plug 'dense-analysis/ale'
 call plug#end()
 
 
