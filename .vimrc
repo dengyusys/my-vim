@@ -10,6 +10,8 @@ set backspace=indent,eol,start
 " 启动真彩模式，以便设置主题
 set termguicolors
 
+:colorscheme desert
+
 " 启动语法高亮
 syntax on
 
