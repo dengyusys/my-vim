@@ -75,8 +75,15 @@ set shiftwidth=2
 " 编辑时按 Tab 键的缩进宽度
 set softtabstop=2
 
-" 使用制表符而不是空格
-set noexpandtab
+" 使用空格代替制表符 (推荐)
+set expandtab
+
+" 智能制表符处理
+set smarttab
+
+" 自动缩进
+set autoindent
+set smartindent
 
 "----------------------------------------------------------------------
 " 文件处理设置
