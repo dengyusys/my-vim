@@ -251,6 +251,12 @@ nmap <silent><nowait> gr <Plug>(coc-references)        " 查看引用
 " Prettier 格式化命令
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
+"----------------------------------------------------------------------
+" vim-fugitive 配置
+"----------------------------------------------------------------------
+set diffopt+=vertical
+
+
 "======================================================================
 " 插件管理 (vim-plug)
 "======================================================================
@@ -273,6 +279,8 @@ call plug#begin()
   Plug 'tpope/vim-commentary'            " 快速注释
   Plug 'mg979/vim-visual-multi'          " 多光标编辑
   Plug 'machakann/vim-highlightedyank'   " 高亮复制内容
+	Plug 'dengyusys/vue-comment'           " vue 注释插件
+	Plug 'tpope/vim-fugitive'              " git 包装器
   
   " 异步执行和终端
   Plug 'skywind3000/asyncrun.vim'        " 异步运行命令
