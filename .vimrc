@@ -283,7 +283,6 @@ call plug#begin()
   " 编辑增强
   Plug 'easymotion/vim-easymotion'       " 快速跳转
   Plug 'tpope/vim-surround'              " 围绕字符操作 (引号、括号等)
-  Plug 'tpope/vim-commentary'            " 快速注释
   Plug 'mg979/vim-visual-multi'          " 多光标编辑
   Plug 'machakann/vim-highlightedyank'   " 高亮复制内容
 	Plug 'dengyusys/vue-comment'           " vue 注释插件
