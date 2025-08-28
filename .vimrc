@@ -218,6 +218,15 @@ let g:terminal_shell = 'pwsh'
 " 设置 LeaderF 快捷键为 Ctrl+P
 let g:Lf_ShortcutF = '<c-p>'
 
+" ALT+n 打开 buffer 模糊匹配
+let g:Lf_ShortcutB = '<m-n>'
+
+" CTRL+n 打开最近使用的文件 MRU，进行模糊匹配
+noremap <c-n> :LeaderfMru<cr>
+  
+" ALT+p 打开函数列表，按 i 进入模糊匹配，ESC 退出
+noremap <m-p> :LeaderfFunction!<cr>
+
 " 设置 Vue 文件图标
 let g:Lf_DevIconsExtensionSymbols = { 'vue': '󰡄' }
 
@@ -283,10 +292,9 @@ call plug#begin()
   " 编辑增强
   Plug 'easymotion/vim-easymotion'       " 快速跳转
   Plug 'tpope/vim-surround'              " 围绕字符操作 (引号、括号等)
-  Plug 'mg979/vim-visual-multi'          " 多光标编辑
   Plug 'machakann/vim-highlightedyank'   " 高亮复制内容
-	Plug 'dengyusys/vue-comment'           " vue 注释插件
-	Plug 'tpope/vim-fugitive'              " git 包装器
+  Plug 'dengyusys/vue-comment'           " vue 注释插件
+  Plug 'tpope/vim-fugitive'              " git 包装器
   
   " 异步执行和终端
   Plug 'skywind3000/asyncrun.vim'        " 异步运行命令
