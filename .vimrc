@@ -12,7 +12,7 @@ syntax on
 set termguicolors
 
 " 设置颜色主题
-colorscheme desert
+" colorscheme desert
 
 " 设置字符编码为 UTF-8
 set encoding=utf8
