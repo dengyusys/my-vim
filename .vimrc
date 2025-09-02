@@ -5,30 +5,37 @@
 " 禁用 vi 兼容模式，启用 Vim 高级特性
 set nocompatible
 
-" 启用语法高亮
-syntax on
-
-" 启用真彩色模式 (24-bit color)
-set termguicolors
-
-" 设置颜色主题
-" colorscheme desert
-
-" 设置字符编码为 UTF-8
 set encoding=utf8
 
 " 文件换行符支持 (Unix, DOS, Mac)
 set ffs=unix,dos,mac
 
 "----------------------------------------------------------------------
+" 外观和颜色主题
+" 启用语法高亮
+syntax on
+
+" 启用真彩色模式 (24-bit color)
+set termguicolors
+
+" 设置黑色背景
+set background=dark
+
+" 设置颜色主题
+colorscheme desert
+
+"----------------------------------------------------------------------
 " 界面和显示设置
 "----------------------------------------------------------------------
 
-" GVIM 字体设置 (JetBrains Mono Nerd Font)
-set guifont=JetBrainsMono\ NFM\ Regular:h14
-
 " 显示行号
 set number
+
+" 总是显示侧边栏
+set signcolumn=yes
+
+" GVIM 字体设置 (JetBrains Mono Nerd Font)
+set guifont=JetBrainsMono\ NFM\ Regular:h14
 
 " 设置 Backspace 键行为 (允许删除缩进、换行符、插入起始位置之前的字符)
 set backspace=indent,eol,start
@@ -96,11 +103,11 @@ set nowritebackup
 " 禁用写入备份 (覆盖文件时不创建备份)
 set nowb
 
-" 自动重新读取外部修改的文件
-set autoread
-
 " 禁用交换文件 (.swp)
 set noswapfile
+
+" 自动重新读取外部修改的文件
+set autoread
 
 "----------------------------------------------------------------------
 " 光标样式设置 (注释状态)
@@ -119,7 +126,6 @@ set noswapfile
 " 忽略特定文件和目录 (用于文件搜索)
 set wildignore+=*/node_modules/**,*.git,.git
 set wildignore+=*.png,*.jpg,*.gif
-
 
 "----------------------------------------------------------------------
 " Airline 状态栏配置
@@ -157,6 +163,7 @@ noremap <space>no :NERDTreeFocus<CR>    " 焦点切换到 NERDTree
 noremap <space>nf :NERDTreeFind<CR>     " 在 NERDTree 中定位当前文件
 noremap <space>nt :NERDTreeToggle<CR>   " 切换 NERDTree 显示/隐藏
 noremap <space>nm :NERDTreeMirror<CR>   " 镜像 NERDTree
+
 
 "----------------------------------------------------------------------
 " 其他内置功能
@@ -209,8 +216,6 @@ augroup END
 
 " 设置默认 shell 为 PowerShell (Windows)
 let g:terminal_shell = 'pwsh'
-
-
 "----------------------------------------------------------------------
 " LeaderF 模糊搜索配置
 "----------------------------------------------------------------------
@@ -268,10 +273,10 @@ nmap <silent><nowait> gr <Plug>(coc-references)        " 查看引用
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 "----------------------------------------------------------------------
-" vim-fugitive 配置
+" vim-fugitive Git 集成配置
 "----------------------------------------------------------------------
-set diffopt+=vertical
 
+set diffopt+=vertical
 
 "======================================================================
 " 插件管理 (vim-plug)
@@ -295,6 +300,11 @@ call plug#begin()
   Plug 'machakann/vim-highlightedyank'   " 高亮复制内容
   Plug 'dengyusys/vue-comment'           " vue 注释插件
   Plug 'tpope/vim-fugitive'              " git 包装器
+	Plug 'dengyusys/vue-comment'           " vue 注释插件
+  
+  " Git 集成
+  Plug 'tpope/vim-fugitive'              " Git 包装器
+  Plug 'mhinz/vim-signify'               " 显示 Git diff 在侧边栏
   
   " 异步执行和终端
   Plug 'skywind3000/asyncrun.vim'        " 异步运行命令
@@ -306,5 +316,3 @@ call plug#begin()
   " 智能补全和语言服务
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 call plug#end()
-
-
